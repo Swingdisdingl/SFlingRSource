@@ -16,7 +16,7 @@ game:GetService("Players")[getgenv().Owner].Chatted:Connect(function(msg1)
     if game.Players.LocalPlayer.Name == getgenv().Alt then
         local msg = string.split(msg1," ")
 
-        if msg[1]:lower() == "/fling" and msg[2] then
+        if msg[1]:lower() == "getgenv().command" and msg[2] then
             pcall(function()
                     local power = 500000
                 local player = game.Players.LocalPlayer
