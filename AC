@@ -12,7 +12,18 @@ local function GetPlayerByDisplayname(String)
     return plr
 end
 
+local function float()
+    local Character = game.Players.LocalPlayer.Character
+    local bd = Instance.new("BodyVelocity", Character.LowerTorso);
+    bd.Name = "Velocity"
+    bd.MaxForce = Vector3.new(2500, 2500, 2500);
+    bd.Velocity = (Character.Head.CFrame * CFrame.Angles(math.rad(2), 0, 0)).lookVector * 0;
+end
+
 if game.Players.LocalPlayer.Name == getgenv().Alt then
+    game:service('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(206, 38, 200015, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    wait(1)
+    float()
 game:GetService("Players")[getgenv().Owner].Chatted:Connect(function(msg1)
     if game.Players.LocalPlayer.Name == getgenv().Alt then
         local msg = string.split(msg1," ")
@@ -94,11 +105,7 @@ game:GetService("Players")[getgenv().Owner].Chatted:Connect(function(msg1)
                                 if flinging == true then
                                     Pause()
                                 game:service('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(206, 38, 200015, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-                                local Character = game.Players.LocalPlayer.Character
-                                local bd = Instance.new("BodyVelocity", Character.LowerTorso);
-                                    bd.Name = "Velocity"
-                                    bd.MaxForce = Vector3.new(2500, 2500, 2500);
-                                    bd.Velocity = (Character.Head.CFrame * CFrame.Angles(math.rad(2), 0, 0)).lookVector * 0;
+                                float()
                             end
                         end
                     end)
