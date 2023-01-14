@@ -12,13 +12,15 @@ local function GetPlayerByDisplayname(String)
     return plr
 end
 
+if game.Players.LocalPlayer.Name == getgenv().Alt then
 game:GetService("Players")[getgenv().Owner].Chatted:Connect(function(msg1)
     if game.Players.LocalPlayer.Name == getgenv().Alt then
         local msg = string.split(msg1," ")
 
         if msg[1]:lower() == "getgenv().command" and msg[2] then
             pcall(function()
-                    local power = 500000
+                bd:Destroy()
+            local power = 500000
                 local player = game.Players.LocalPlayer
                 local Players = game:GetService('Players')
                 local oldpos1 = player.Character.HumanoidRootPart.CFrame
@@ -91,10 +93,16 @@ game:GetService("Players")[getgenv().Owner].Chatted:Connect(function(msg1)
                             wait(4)
                                 if flinging == true then
                                     Pause()
-                                    game:service('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(206, 38, 200015, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                                game:service('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(206, 38, 200015, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+                                local Character = game.Players.LocalPlayer.Character
+                                local bd = Instance.new("BodyVelocity", Character.LowerTorso);
+                                    bd.Name = "Velocity"
+                                    bd.MaxForce = Vector3.new(2500, 2500, 2500);
+                                    bd.Velocity = (Character.Head.CFrame * CFrame.Angles(math.rad(2), 0, 0)).lookVector * 0;
                             end
                         end
                     end)
                 end
             end
         end)
+    end
